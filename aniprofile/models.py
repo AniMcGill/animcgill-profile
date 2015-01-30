@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+import markdown
 # Create your models here.
 
 
@@ -8,6 +8,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User)
     avatar_local = models.ImageField(upload_to="avatars/",blank=True, null=True)
     blurb = models.CharField(max_length=255, blank=True)
+    signature = models.TextField(blank=True)
+    signiture_shown = models.TextField(blank=True)
     website_url = models.URLField(blank=True)
     website_text = models.CharField(max_length = 255, blank=True)
     steam_account = models.CharField(max_length = 30, blank = True)
@@ -20,6 +22,8 @@ class Profile(models.Model):
         else:
             url = "/static/profile/no_avatar.png"
         return url
+    def save(self, **kwargs):
+        signature_shown = markdown.markdown(self.signature, output_format="html5")
     @models.permalink
     def get_absolute_url(self):
         return ('user_view',(),{'user': self.user.pk})
@@ -42,7 +46,7 @@ class Exec(models.Model):
     def __unicode__(self):
         return self.position +": " + self.user.first_name
     def save(self, **kwargs):
-        self.about_saved = markdown.markdown(self.about)
+        self.about_saved = markdown.markdown(self.about, output_format="html5")
         super(Exec, self).save(**kwargs)
     def get_absolute_url(self):
         return self.user.profile.get_absolute_url()
