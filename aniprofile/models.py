@@ -5,7 +5,7 @@ import markdown
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User)
+    id = models.OneToOneField(User, primary_key=True)
     avatar_local = models.ImageField(upload_to="avatars/",blank=True, null=True)
     blurb = models.CharField(max_length=255, blank=True)
     signature = models.TextField(blank=True)
@@ -30,7 +30,7 @@ class Profile(models.Model):
     
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)
+        Profile.objects.create(id=instance)
 
 post_save.connect(create_user_profile, sender=User)
 
