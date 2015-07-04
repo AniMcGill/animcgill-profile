@@ -25,6 +25,7 @@ class Profile(models.Model):
         return url
     def save(self, **kwargs):
         signature_shown = markdown.markdown(self.signature, output_format="html5")
+        super(Profile, self).save(**kwargs)
     @models.permalink
     def get_absolute_url(self):
         return ('user_view',(),{'user': self.user.pk})
