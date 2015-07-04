@@ -16,7 +16,7 @@ class Profile(models.Model):
     steam_account = models.CharField(max_length = 30, blank = True)
     xbox_account = models.CharField(max_length = 20, blank = True)
     def __unicode__(self):
-        return self.user.username
+        return self.id.username
     def avatar(self):
         if self.avatar_local:
             url = self.avatar_local.url
@@ -30,7 +30,7 @@ class Profile(models.Model):
         return ('user_view',(),{'user': self.user.pk})
     
 def create_user_profile(sender, instance, created, **kwargs):
-    if created:
+    if created or not instance.profile:
         Profile.objects.create(id=instance)
 
 post_save.connect(create_user_profile, sender=User)
