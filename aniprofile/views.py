@@ -34,7 +34,7 @@ def registration(request):
         if form.is_valid() and form.cleaned_data['test'].upper() == "MCGILL":
             password = form.cleaned_data['password']
             if form.cleaned_data['passwordConfirm'] != password:
-                return render_to_response('accounts/register.html', {'form': form},
+                return render_to_response('registration/register.html', {'form': form},
                     context_instance=RequestContext(request))
             username = form.cleaned_data['username']
             email = form.cleaned_data['email']
@@ -45,11 +45,11 @@ def registration(request):
             return HttpResponseRedirect('/accounts/login/')
         else:
             messages.add_message(request, messages.ERROR, 'Registration error')
-            return render_to_response('accounts/register.html', {'form': form},
+            return render_to_response('registration/register.html', {'form': form},
                 context_instance=RequestContext(request))
     else:
         form = RegistrationForm()
-        return render_to_response('accounts/register.html', {'form': form},
+        return render_to_response('registration/register.html', {'form': form},
             context_instance=RequestContext(request))
 
 
