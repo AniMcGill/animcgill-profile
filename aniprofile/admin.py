@@ -11,6 +11,7 @@ class OfficeHoursInline(admin.TabularInline):
 class ExecAdmin(admin.ModelAdmin):
     list_display = ('name', 'position', 'active')
     list_filter = ('active', 'position', 'user__is_staff')
+    fields = ('user', ('position', 'active'), 'about')
     inlines = [OfficeHoursInline, ]
 
 
