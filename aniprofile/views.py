@@ -22,7 +22,7 @@ class ProfileView(DetailView):
             o = get_object_or_404(queryset, pk)
         except:
             if self.request.user.is_authenticated():
-                o = self.request.user
+                o = self.request.user.profile
             else:
                 raise PermissionDenied
         return o
