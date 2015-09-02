@@ -3,61 +3,61 @@
 {% block titleextra %} - Registration{% endblock %}
 
 {% block main %}
-<div class="FrontPage">
-<div class="register">
-{% if user.is_authenticated %}
-<h2>Registration</h2>
-<h3>You are already logged in</h3>
-{% else %}
-<form method="post"  class="form-horizontal" action="/accounts/register/">
-<fieldset>
-<legend>Registration</legend>
+<div class="FrontPage row">
+  <div class="register col-md-8 col-md-offset-2">
+    {% if user.is_authenticated %}
+    <h2>Registration</h2>
+    <h3>You are already logged in</h3>
+    {% else %}
+    <form method="post"  class="form-horizontal" action="/accounts/register/">
+      <fieldset>
+        <legend>Registration</legend>
 
-{% csrf_token %}
-<div class="control-group">
-	<label class="control-label" for="id_username">{{ form.username.label }}</label>
-	<div class="controls">
-		{{ form.username }}
-	</div>
-</div>
+        {% csrf_token %}
+        <div class="control-group">
+          <label class="control-label" for="id_username">{{ form.username.label }}</label>
+          <div class="controls">
+            {{ form.username }}
+          </div>
+        </div>
 
-<div class="control-group">
-	<label class="control-label" for="id_password">{{ form.password.label }}</label>
-	<div class="controls">
-		{{ form.password }}
-	</div>
-</div>
+        <div class="control-group">
+          <label class="control-label" for="id_password">{{ form.password.label }}</label>
+          <div class="controls">
+            {{ form.password }}
+          </div>
+        </div>
 
-<div class="control-group">
-	<label class="control-label" for="id_passwordConfirm">{{ form.passwordConfirm.label }}</label>
-	<div class="controls">
-		{{ form.passwordConfirm }}
-	</div>
-</div>
+        <div class="control-group">
+          <label class="control-label" for="id_passwordConfirm">{{ form.passwordConfirm.label }}</label>
+          <div class="controls">
+            {{ form.passwordConfirm }}
+          </div>
+        </div>
 
-<div class="control-group">
-	<label class="control-label" for="id_email">{{ form.email.label }}</label>
-	<div class="controls">
-		{{ form.email }}
-	</div>
-</div>
+        <div class="control-group">
+          <label class="control-label" for="id_email">{{ form.email.label }}</label>
+          <div class="controls">
+            {{ form.email }}
+          </div>
+        </div>
 
-<div class="control-group">
-	<label class="control-label" for="id_test">{{ form.test.label }}</label>
-	<div class="controls">
-		{{ form.test }}
-	</div>
-</div>
+        <div class="control-group">
+          <label class="control-label" for="id_test">{{ form.test.label }}</label>
+          <div class="controls">
+            {{ form.test }}
+          </div>
+        </div>
 
-<div class="control-group">
-	<div class="controls">
-		<button type="submit" class="btn">Register</button>
-	</div>
-</div>
-</fieldset>
-</form>
-{% endif %}
-</div>
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" class="btn">Register</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    {% endif %}
+  </div>
 </div>
 {% endblock %}
 
