@@ -21,7 +21,7 @@ class ProfileView(DetailView):
             pk = self.kwargs["pk"]
             o = get_object_or_404(queryset, pk)
         except:
-            if self.request.user.is_authenticated:
+            if self.request.user.is_authenticated():
                 o = self.request.user
             else:
                 raise PermissionDenied
