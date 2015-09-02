@@ -5,6 +5,7 @@
 {% block main %}
 <div class="FrontPage">
   <div class="row">
+  {{object}}
     <div class="col-md-4">
       <dl><dt>Profile Avatar:</dt><dd><img src="{{usr.avatar}}" alt="{{usr.id.username}}'s Avatar" class="img-rounded" ></dd></dl>
     </div>
@@ -27,7 +28,7 @@
 
 {% block extraScripts %}
 <script>
-var menuItem = document.getElementById("menu_profile");
+var menuItem = document.getElementById("menu_accounts_profile");
 menuItem.className = "active";
 </script>
 {% endblock %}
