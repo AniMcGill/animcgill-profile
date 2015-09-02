@@ -19,12 +19,12 @@ class ProfileView(DetailView):
     def get_object(self, queryset=Profile):
         try:
             pk = self.kwargs["pk"]
+            o = get_object_or_404(queryset, pk)
         except:
             if self.request.user.is_authenticated:
-                pk = self.request.user.id
+                o = self.request.user
             else:
                 raise PermissionDenied
-        o = get_object_or_404(queryset, pk)
         return o
 
 
