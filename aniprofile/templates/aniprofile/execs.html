@@ -6,8 +6,8 @@
 {% cache 500 execs %}
 <div class="FrontPage">
   {% for exec in execs %}
+  <h2 class="exec_title">{{exec}}</h2>
   <div class="row">
-    <h2>{{exec}}</h2>
     <div class="col-md-4">
       <img src="{{exec.user.profile.avatar}}" alt="{{exec.user.username}}'s Avatar" class="img-rounded" >
     </div>
