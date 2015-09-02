@@ -31,11 +31,8 @@ class ProfileView(DetailView):
 def registration(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
-        if form.is_valid() and form.cleaned_data['test'].upper() == "MCGILL":
+        if form.is_valid():
             password = form.cleaned_data['password']
-            if form.cleaned_data['passwordConfirm'] != password:
-                return render_to_response('registration/register.html', {'form': form},
-                    context_instance=RequestContext(request))
             username = form.cleaned_data['username']
             email = form.cleaned_data['email']
             user = User.objects.create_user(username, email, password)

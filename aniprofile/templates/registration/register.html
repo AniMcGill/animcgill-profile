@@ -14,39 +14,44 @@
         <legend>Registration</legend>
 
         {% csrf_token %}
-        <div class="control-group">
+        <div class="control-group{% if form.username.errors %} has-error{% endif %}">
           <label class="control-label" for="id_username">{{ form.username.label }}</label>
           <div class="controls">
             {{ form.username }}
           </div>
+          <span class="form-error">{{ form.username.errors }}</span>
         </div>
 
-        <div class="control-group">
+        <div class="control-group{% if form.password.errors %} has-error{% endif %}">
           <label class="control-label" for="id_password">{{ form.password.label }}</label>
           <div class="controls">
             {{ form.password }}
           </div>
+          <span class="form-error">{{ form.password.errors }}</span>
         </div>
 
-        <div class="control-group">
+        <div class="control-group{% if form.passwordConfirm.errors %} has-error{% endif %}">
           <label class="control-label" for="id_passwordConfirm">{{ form.passwordConfirm.label }}</label>
           <div class="controls">
             {{ form.passwordConfirm }}
           </div>
+          <span class="form-error">{{ form.passwordConfirm.errors }}</span>
         </div>
 
-        <div class="control-group">
+        <div class="control-group{% if form.email.errors %} has-error{% endif %}">
           <label class="control-label" for="id_email">{{ form.email.label }}</label>
           <div class="controls">
             {{ form.email }}
           </div>
+          <span class="form-error">{{ form.email.errors }}</span>
         </div>
 
-        <div class="control-group">
+        <div class="control-group{% if form.test.errors %} has-error{% endif %}">
           <label class="control-label" for="id_test">{{ form.test.label }}</label>
           <div class="controls">
             {{ form.test }}
           </div>
+          <span class="form-error">{{ form.test.errors }}</span>
         </div>
 
         <div class="control-group">
