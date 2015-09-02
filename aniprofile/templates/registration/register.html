@@ -3,7 +3,7 @@
 {% block titleextra %} - Registration{% endblock %}
 
 {% block main %}
-
+<div class="FrontPage">
 <div class="register">
 {% if user.is_authenticated %}
 <h2>Registration</h2>
@@ -58,7 +58,7 @@
 </form>
 {% endif %}
 </div>
-
+</div>
 {% endblock %}
 
 {% block extraScripts %}

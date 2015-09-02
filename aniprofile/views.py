@@ -16,7 +16,7 @@ class ProfileView(DetailView):
     template_name = "aniprofile/profile.html"
     context_object_name = "usr"
 
-    def get_object(self, queryset=None):
+    def get_object(self, queryset=Profile):
         try:
             pk = self.kwargs["pk"]
         except:
