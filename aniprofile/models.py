@@ -32,7 +32,7 @@ class Profile(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('user_view', (), {'user': self.pk})
+        return ('user_view', (), {'pk': self.pk})
 
 
 def create_user_profile(sender, instance, created, **kwargs):
