@@ -1,7 +1,7 @@
 {% extends 'base_html.html' %}
 {% load static %}
 {% load cache %}
-{% block titleextra %} - User - {{ usr.id.username }}{% endblock %}
+{% block titleextra %} - Execs{% endblock %}
 {% block main %}
 {% cache 500 execs %}
 <div class="FrontPage">
