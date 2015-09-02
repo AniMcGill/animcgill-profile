@@ -1,0 +1,34 @@
+{% extends 'base_html.html' %}
+{% load static %}
+{% load cache %}
+{% block titleextra %} - User - {{ usr.id.username }}{% endblock %}
+{% block main %}
+{% cache 500 execs %}
+<div class="FrontPage">
+  {% for exec in execs %}
+  <div class="row">
+    <h2>{{exec}}</h2>
+    <div class="col-md-4">
+      <img src="{{exec.user.profile.avatar}}" alt="{{exec.user.username}}'s Avatar" class="img-rounded" >
+    </div>
+
+    <div class="col-md-8">
+      <dl class="dl-horizontal">
+        <dt>Username:</dt><dd><a href={{exec.user.profile.get_absolute_url}}>{{exec.user.username}}</a></dd>
+        <dt>Position:</dt><dd>{{exec.position}}</dd>
+        <dt>About:</dt>
+        <dd>{{exec.about_saved|safe }}</dd>
+      </dl>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endcache %}
+{% endblock %}
+
+{% block extraScripts %}
+<script>
+var menuItem = document.getElementById("menu_profile");
+menuItem.className = "active";
+</script>
+{% endblock %}

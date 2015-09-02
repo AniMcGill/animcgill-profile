@@ -12,10 +12,10 @@
     <div class="col-md-8">
       <dl class="dl-horizontal">
         <dt>Username:</dt><dd>{{usr.id.username}}</dd>
-        <dt>Display Name:</dt><dd>{{usr.display_name}}</dd>
-        <dt>Location:</dt><dd>{{usr.location}}</dd>
         <dt>Website:</dt><dd><a href="{{usr.website_url}}">{{usr.website_text}}</a></dd>
         <dt>User Text:</dt><dd>{{usr.blurb}}</dd>
+        {% if usr.steam_account%}<dt>Steam</dt><dd>{{usr.steam_account}}</dd>{% endif %}
+        {% if usr.xbox_account%}<dt>XBox</dt><dd>{{usr.xbox_account}}</dd>{% endif %}
         <dt>Signature:</dt>
         <dd>{{usr.profile.sig_shown|safe }}</dd>
       </dl>
