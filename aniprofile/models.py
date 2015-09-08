@@ -6,7 +6,7 @@ import markdown
 
 
 class Profile(models.Model):
-    id = models.OneToOneField(User, primary_key=True)
+    id = models.OneToOneField(User, primary_key=True, verbose_name="user")
     avatar_local = models.ImageField(upload_to="avatars/", blank=True, null=True)
     blurb = models.CharField(max_length=255, blank=True)
     signature = models.TextField(blank=True)
