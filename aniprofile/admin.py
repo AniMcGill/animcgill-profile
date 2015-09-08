@@ -17,6 +17,7 @@ class ExecAdmin(admin.ModelAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('id', 'id__is_staff', 'steam_account')
-    list_filter = ('id__is_staff')
+    pass
+#    list_display = ('id', 'id__is_staff', 'steam_account')
+#    list_filter = ('id__is_staff')
 
